@@ -1,0 +1,28 @@
+[project]
+name = "finalproject-student-group"
+version = "0.1.0"
+description = "ValutaTrade Hub - simulated currency trading platform"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["prettytable>=3.10", "requests>=2.31"]
+
+[dependency-groups]
+dev = ["ruff>=0.6.0"]
+
+[project.scripts]
+valutatrade = "valutatrade_hub.cli.interface:main"
+
+[tool.ruff]
+line-length = 220
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["I001"]
+
+[tool.valutatrade]
+data_dir = "data"
+rates_ttl_seconds = 300
+base_currency = "USD"
+log_file = "logs/actions.log"
+log_level = "INFO"
